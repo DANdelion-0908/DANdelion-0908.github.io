@@ -4,7 +4,7 @@ import Screen from '../screen/Screen'
 import Button from '../buttons/Button'
 
 const Body = () => {
-    const buttons = [1, 2, 3, "*", 4, 5, 6, "-", 7, 8, 9, "*", 0, "="]
+    const buttons = [7, 8, 9, "*", 4, 5, 6, "-", 1, 2, 3, "*", 0, "="]
 
     const operators = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
