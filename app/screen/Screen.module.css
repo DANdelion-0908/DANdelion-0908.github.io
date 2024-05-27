@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Digital";
+    src: url('../fonts/Digital7Mono-Yz9J4.ttf');
+}
+
+.screen {
+    width: 45em;
+    height: 10em;
+    padding: 2em;
+    background-color: rgb(196, 196, 196);
+    border: 9px solid rgba(0, 0, 0, 0.507);
+
+    display: grid;
+    grid-template-columns: repeat(9, auto);
+    grid-template-rows: 1; 
+    justify-content: end;
+    align-items: end;
+}
+
+.operators {
+    font-family: "Digital";
+    padding: 0.3em;
+    font-size: 4.3em;
+}
