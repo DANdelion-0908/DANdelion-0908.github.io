@@ -1,0 +1,36 @@
+/* Button.module.css */
+.Button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4e4e4e;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #3d3d3d;
+}
+
+.Button:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+.Button:active {
+  background-color: #000000;
+  color: white;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.ZeroButton {
+  grid-column: span 3; 
+}
+
+.EqualButton {
+  background-color: #c90c64;
+  box-shadow: 0 9px #6b0635;
+}
