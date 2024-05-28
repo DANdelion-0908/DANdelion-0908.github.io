@@ -27,7 +27,7 @@
 }
 
 .ZeroButton {
-  grid-column: span 3; 
+  grid-column: span 2; 
 }
 
 .EqualButton {
@@ -36,6 +36,6 @@
 }
 
 .MiscButton {
-  grid-column: span 2;
-  margin-top: 1em;
+  background-color: #c90c64;
+  box-shadow: 0 9px #6b0635;
 }

@@ -8,7 +8,7 @@ const Button = ({ symbol, handleButtonPress }) => {
         <div onClick={() => handleButtonPress(symbol)} className={`${styles.Button} 
         ${symbol === 0 ? styles.ZeroButton : ''} 
         ${symbol === "=" ? styles.EqualButton : ''}
-        ${symbol === "C" || symbol === "Del" ? styles.MiscButton : ''}`}>
+        ${symbol === "C" ? styles.MiscButton : ''}`}>
         {symbol}
         </div>
     );
