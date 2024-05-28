@@ -6,7 +6,7 @@ import Screen from '../screen/Screen'
 import Button from '../buttons/Button'
 
 const Body = () => {
-    const buttons = ["C", "Del", 7, 8, 9, "*", 4, 5, 6, "-", 1, 2, 3, "+", 0, "="]
+    const buttons = ["C", "Del", "+/-", "/", 7, 8, 9, "*", 4, 5, 6, "-", 1, 2, 3, "+", 0, ".","="]
 
     const [operators, setOperators] = useState([0])
     const [savedNumber, setSavedNumber] = useState()
@@ -14,7 +14,7 @@ const Body = () => {
     const [flag, setFlag] = useState(false)
 
     function getTotal() {
-        const currentNumber = parseInt(operators.join(''))
+        const currentNumber = parseFloat(operators.join(''))
         let result
 
         switch (savedOperator) {
@@ -29,9 +29,15 @@ const Body = () => {
             case "*":
                 result = savedNumber * currentNumber
             break;
+
+            case "/":
+                result = savedNumber / currentNumber
+            break;
         }
 
-        if (result < 0 || result > 999999999 || typeof savedNumber != 'number') {
+        console.log(result)
+
+        if (result < 0 || result > 999999999 || !result) {
             setOperators(["ERROR"])
             setSavedNumber(null)
             setSavedOperator(null)
@@ -46,15 +52,32 @@ const Body = () => {
     }
 
     const handleButtonPress = (symbol) => {
-        if (typeof symbol === 'number' && operators.length < 9) {
+        if ((typeof symbol === 'number' || symbol === ".") && operators.length < 9) {
             if (operators[0] === 0 && operators.length === 1) {
-                setOperators([symbol])
+                if (symbol === ".") {
+                    setOperators((prevOperators) => [...prevOperators, symbol])
+
+                } else {
+                    setOperators([symbol])
+                }
+
             } else {
                 if (flag) {
-                    setOperators([symbol])
+                    if (symbol === "." && !operators.includes(".")) {
+                        setOperators((prevOperators) => [...prevOperators, symbol])
+    
+                    } else {
+                        setOperators([symbol])
+                    }
                     
                 } else {
-                    setOperators((prevOperators) => [...prevOperators, symbol])
+                    if (symbol === "." && !operators.includes(".")) {
+                        setOperators((prevOperators) => [...prevOperators, symbol])
+    
+                    } else if (symbol !== ".") {
+                        setOperators((prevOperators) => [...prevOperators, symbol])
+   
+                    }
                 }
 
                 setFlag(false)
@@ -83,19 +106,25 @@ const Body = () => {
                 case "+":
                 case "-":
                 case "*":
+                case "/":
                     if (savedOperator) {
                         getTotal()
 
                     } else {
                         setFlag(false)
-                        setSavedNumber(parseInt(operators.join('')))
+                        setSavedNumber(parseFloat(operators.join('')))
                         setOperators([0])
                         setSavedOperator(symbol)
                     }
 
+                    console.log(operators)
+                    console.log(savedNumber)
                     setSavedOperator(symbol)
 
                 break
+
+                case "+/-":
+                    setOperators((prevOperators) => ["-", ...prevOperators])
 
                 case "=":
                     if (savedOperator) {
