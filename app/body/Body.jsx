@@ -20,23 +20,21 @@ const Body = () => {
 
         switch (savedOperator) {
             case "+":
-                result = savedNumber + currentNumber
+                result = (savedNumber + currentNumber).toFixed(2)
             break;
 
             case "-":
-                result = savedNumber - currentNumber
+                result = (savedNumber - currentNumber).toFixed(2)
             break;
 
             case "*":
-                result = savedNumber * currentNumber
+                result = (savedNumber * currentNumber).toFixed(2)
             break;
 
             case "/":
                 result = (savedNumber / currentNumber).toFixed(2)
             break;
         }
-
-        console.log(result)
 
         if (result < 0 || result > 999999999 || !result) {
             setOperators(["ERROR"])
