@@ -32,9 +32,11 @@ const Body = () => {
             break;
 
             case "/":
-                result = savedNumber / currentNumber
+                result = (savedNumber / currentNumber).toFixed(2)
             break;
         }
+
+        console.log(result)
 
         if (result < 0 || result > 999999999 || !result) {
             setOperators(["ERROR"])
@@ -121,7 +123,12 @@ const Body = () => {
                 break
 
                 case "+/-":
-                    setOperators((prevOperators) => ["-", ...prevOperators])
+                    if (!operators.includes("-")) {
+                        setOperators((prevOperators) => ["-", ...prevOperators])
+                        
+                    } else {
+                        setOperators((prevOperators) => [prevOperators.shift(), ...prevOperators])
+                    }
 
                 case "=":
                     if (savedOperator) {
