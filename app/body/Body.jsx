@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './Body.module.css'
 import Screen from '../screen/Screen'
 import Button from '../buttons/Button'
+import Image from 'next/image'
 
 const Body = () => {
     const buttons = ["C", "Del", "+/-", "/", 7, 8, 9, "*", 4, 5, 6, "-", 1, 2, 3, "+", 0, ".","="]
@@ -134,6 +135,14 @@ const Body = () => {
 
   return (
     <div className={styles.Body}>
+        <a href="https://github.com/DANdelion-0908/DANdelion-0908.github.io.git" target='_blank'>
+            <Image
+                src="/github-mark-white.png"
+                width={70}
+                height={70}
+                alt="Enlace a GitHub"
+            />
+        </a>
         <Screen operators={operators}/>
         <div className={styles.Buttons}>
             {buttons.map((symbol, index) => {
