@@ -35,8 +35,6 @@ const Body = () => {
             break;
         }
 
-        console.log(result)
-
         if (result < 0 || result > 999999999 || !result) {
             setOperators(["ERROR"])
             setSavedNumber(null)
@@ -117,8 +115,6 @@ const Body = () => {
                         setSavedOperator(symbol)
                     }
 
-                    console.log(operators)
-                    console.log(savedNumber)
                     setSavedOperator(symbol)
 
                 break
