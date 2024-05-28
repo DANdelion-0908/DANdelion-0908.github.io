@@ -1,14 +1,14 @@
+'use client'
+
 import React from 'react';
 import styles from './Button.module.css';
 
-const Button = ({ symbol }) => {
-
-    function addNumber() {
-        
-    }
-
+const Button = ({ symbol, handleButtonPress }) => {
     return (
-        <div className={`${styles.Button} ${symbol === 0 ? styles.ZeroButton : ''} ${symbol === "=" ? styles.EqualButton : ''}`}>
+        <div onClick={() => handleButtonPress(symbol)} className={`${styles.Button} 
+        ${symbol === 0 ? styles.ZeroButton : ''} 
+        ${symbol === "=" ? styles.EqualButton : ''}
+        ${symbol === "C" || symbol === "Del" ? styles.MiscButton : ''}`}>
         {symbol}
         </div>
     );
